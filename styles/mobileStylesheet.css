@@ -1,0 +1,311 @@
+body {
+  margin: 0;
+  padding: 12px;
+  background-color: #e0e0e0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.slideList {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 36px;
+  padding: 36px;
+}
+
+.slideList > div {
+  display: grid;
+  padding: 36px;
+  border-radius: 48px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff;
+}
+
+.selectedListItem {
+  font-weight: bold;
+}
+
+.slideList > div:not(:last-child) {
+  padding-left: 100px;
+  grid-template-columns: 1fr 100px;
+}
+
+#createSlideButton {
+  margin-bottom: 400px;
+}
+
+.slideListItems {
+  margin-top: 0.33em;
+  text-align: center;
+  font-size: 6em;
+  color: black;
+  font-family: "Roboto", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.optionsWrapperSlides {
+  color: black;
+  text-align: center;
+  font-size: 3em;
+  font-family: "Roboto", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.optionsWrapperSlides > div:nth-child(2) {
+  color: #dd2c00;
+}
+
+.editor {
+  padding: 12px;
+}
+
+#stupidFuckingX {
+  font-size: 4em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.inputNumber {
+  font-size: 3.5em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  border: none;
+  outline: none;
+  width: 2em;
+  text-align: center;
+}
+
+#zoom-val {
+  font-size: 3.5em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.headerButtons {
+  font-size: 4em;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+#borderEditor {
+  margin-top: 36px;
+}
+
+#borderEditor > div {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+
+#borderEditor > div > div {
+  display: grid;
+  grid-template-rows: 2.5em 1fr;
+}
+
+.coordinateLabel {
+  text-align: center;
+  font-size: 2em;
+  width: 2em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+#slideEditor {
+  margin-top: 48px;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 48px;
+  margin-bottom: 400px;
+}
+
+.cmdCard {
+  display: grid;
+  grid-template-columns: 1fr 5em;
+  padding: 24px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff;
+}
+
+.optionsWrapper {
+  display: grid;
+  text-align: center;
+  grid-template-rows: repeat(3, 5em);
+}
+
+.optionsWrapper > div {
+  font-size: 3.5em;
+  height: 80px;
+  line-height: 80px;
+}
+.optionsWrapper > div:nth-child(2) {
+  color: #dd2c00;
+}
+
+.titleWrapper {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 48px;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 3em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.alignmentButtons {
+  font-size: 3em;
+}
+
+.selectedAlignment {
+  font-weight: bold;
+}
+
+.borderEdtiorCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.borderEdtiorCardWrapper > div {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.boolPicker {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: fit-content;
+  display: grid;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 0.8em;
+  grid-template-columns: auto auto;
+  background-color: cornflowerblue;
+  padding: 12px;
+  border-radius: calc(24px + 2em);
+}
+
+.boolOptions {
+  padding: 12px;
+  width: fit-content;
+  border-radius: calc(24px + 2em);
+  transition: 300ms ease-out;
+  color: white;
+}
+.boolSelected {
+  background-color: white;
+  color: cornflowerblue;
+}
+
+.inputField {
+  font-size: 2em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  padding: 12px;
+  border: none;
+  outline: none;
+}
+
+.listElementWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+}
+.listElementWrapper > .symbolButton {
+  text-align: center;
+  font-size: 3em;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+
+.elementAddButtonWrapper {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+}
+
+.elementAddButtonWrapper > div {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.inputArea {
+  font-size: 2em;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  border: none;
+  outline: none;
+}
+
+.coordinateWrapper > div > .coordinateLabel {
+  font-size: 3em;
+  padding-right: 12px;
+}
+
+.coordinateWrapper > div {
+  padding-top: 12px;
+}
+
+.imageInputArea {
+  white-space: pre;
+  font-family: consolas;
+  width: calc(100% - 12px);
+  border: none;
+  outline: none;
+}
+
+hr,
+#borderTitle,
+#currentSlideTitle {
+  display: none;
+}
+
+.result {
+  padding: 12px;
+  overflow: scroll;
+}
+
+#slide-test {
+  font-size: 3em;
+  white-space: pre;
+  font-family: FreeMono, Courier, monospace;
+  font-family: monospace;
+}
+
+#mobileToggle {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px;
+  border-radius: calc(3em + 12px);
+  background-color: cornflowerblue;
+}
+
+.mobileToggleOption {
+  padding: 12px;
+  font-family: "Roboto", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  color: white;
+}
+
+.mobileToggleSelected {
+  background-color: white;
+  border-radius: calc(3em + 12px);
+  color: cornflowerblue;
+  transition: 300ms ease-out;
+}

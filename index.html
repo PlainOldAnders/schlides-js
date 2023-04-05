@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link id="mainStylesheet" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Schlides</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script>
+      const isMobile = /Android|iPhone/i.test(navigator.userAgent);
+      if (isMobile) {
+        document
+          .getElementById("mainStylesheet")
+          .setAttribute("href", "styles/mobileStylesheet.css");
+      } else {
+        document
+          .getElementById("mainStylesheet")
+          .setAttribute("href", "styles/stylesheet.css");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slideList">
+        <div
+          class="slideListItems"
+          id="createSlideButton"
+          onclick="createSlide()"
+        >
+          +
+        </div>
+      </div>
+
+      <div class="editor">
+        <input
+          type="number"
+          min="0"
+          class="inputNumber configEditor"
+          onkeyup="updateConfig(event, 0)"
+          onchange="updateConfig(event, 0)"
+        />
+        <span id="stupidFuckingX">x</span>
+        <input
+          type="number"
+          min="0"
+          class="inputNumber configEditor"
+          onkeyup="updateConfig(event, 1)"
+          onchange="updateConfig(event, 1)"
+        />
+        <input
+          type="number"
+          min="0"
+          class="inputNumber configEditor"
+          onkeyup="updateConfig(event, 3)"
+          onchange="updateConfig(event, 3)"
+        />
+
+        <span class="editorTitle" id="currentSlideTitle"></span>
+        <div
+          id="downloadButton"
+          class="symbolButton headerButtons"
+          onclick="download()"
+        >
+          &#128229;
+        </div>
+        <div
+          id="saveButton"
+          class="symbolButton headerButtons"
+          onclick="save()"
+        >
+          &#128190;
+        </div>
+
+        <div class="symbolButton headerButtons" onclick="zoom(true)">&#43;</div>
+        <span class="headerButtons" id="zoom-val">80</span>
+        <div class="symbolButton headerButtons" onclick="zoom(false)">
+          &#8722;
+        </div>
+        <hr />
+        <div id="borderEditor"></div>
+        <hr />
+        <div id="slideEditor">
+          <!--Add editor stuff here-->
+        </div>
+      </div>
+
+      <div class="result">
+        <pre><span id="slide-test" onmousedown="dynamicPosition(event)"></span></pre>
+      </div>
+    </div>
+
+    <div id="mobileToggle">
+      <div
+        class="mobileToggleOption mobileToggleSelected"
+        onclick="toggleMobileView(event)"
+      >
+        Slides
+      </div>
+      <div class="mobileToggleOption" onclick="toggleMobileView(event)">
+        Editor
+      </div>
+      <div class="mobileToggleOption" onclick="toggleMobileView(event)">
+        Result
+      </div>
+    </div>
+  </body>
+
+  <script src="scripts/util.js"></script>
+  <script src="scripts/slide.js"></script>
+  <script src="scripts/slideshow.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/isMobile.js"></script>
+</html>
