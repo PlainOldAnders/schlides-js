@@ -1,6 +1,12 @@
 // Mobile init
 if (isMobile) {
-  setCurrentSelecetd(0);
+  if (window.localStorage.getItem("lastCurrentSelected") !== null) {
+    setCurrentSelected(
+      Number(window.localStorage.getItem("lastCurrentSelected"))
+    );
+  } else {
+    setCurrentSelected(0);
+  }
 } else {
   document.getElementById("mobileToggle").style.display = "none";
 }
@@ -40,16 +46,16 @@ function toggleMobileView(event) {
 
   if (clickedIndex == getCurrentSelected()) {
     if (getCurrentSelected() == mobileToggleElements.length - 1) {
-      setCurrentSelecetd(0);
+      setCurrentSelected(0);
     } else {
-      setCurrentSelecetd(clickedIndex + 1);
+      setCurrentSelected(clickedIndex + 1);
     }
   } else {
-    setCurrentSelecetd(clickedIndex);
+    setCurrentSelected(clickedIndex);
   }
 }
 
-function setCurrentSelecetd(target) {
+function setCurrentSelected(target) {
   showHideForMobile(target);
   const mobileToggleElements =
     document.getElementsByClassName("mobileToggleOption");
@@ -58,6 +64,7 @@ function setCurrentSelecetd(target) {
   }
   mobileToggleElements[target].className =
     "mobileToggleOption mobileToggleSelected";
+  window.localStorage.setItem("lastCurrentSelected", target);
 }
 
 function getCurrentSelected() {

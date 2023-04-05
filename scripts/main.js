@@ -11,6 +11,7 @@ if (window.localStorage.getItem("slideshow") !== null) {
     jsonString: window.localStorage.getItem("slideshow"),
   });
 }
+const seenGuide = window.localStorage.getItem("seenGuide") === "true";
 
 updateSlideshowSite(false, true);
 
@@ -18,19 +19,21 @@ selected(window.location.href);
 updateEditor(window.location.href);
 var globalCleanTimeout;
 
-if (isMobile) {
-  document.getElementById("slide-test").style.fontSize = "2.5em";
-  zoom(true, 0);
+var latestStoredZoom = window.localStorage.getItem("latestZoom");
+if (latestStoredZoom !== null) {
+  document.getElementById("slide-test").style.fontSize = latestStoredZoom;
 } else {
-  document.getElementById("slide-test").style.fontSize = "1em";
-  zoom(true, 0);
+  document.getElementById("slide-test").style.fontSize = isMobile
+    ? "2.5em"
+    : "1em";
 }
+zoom(true, 0);
 
 window.addEventListener("hashchange", function (event) {
   selected(event.newURL);
   updateEditor(event.newURL);
   if (isMobile) {
-    setCurrentSelecetd(1);
+    setCurrentSelected(1);
   }
 });
 
@@ -105,12 +108,7 @@ function createSlide() {
     commands: [
       {
         name: "drawText",
-        params: {
-          x: slideShowObject.slideShow.config[0] / 2,
-          y: slideShowObject.slideShow.config[1] / 2,
-          text: "",
-          align: "c",
-        },
+        params: commandNameStandardParams("drawText"),
       },
     ],
   };
@@ -153,8 +151,13 @@ function zoom(direction, incVal = 0.1) {
   currentVal = direction ? (currentVal += incVal) : (currentVal -= incVal);
   document.getElementById("slide-test").style.fontSize = currentVal + "em";
 
+  window.localStorage.setItem(
+    "latestZoom",
+    document.getElementById("slide-test").style.fontSize
+  );
+
   document.getElementById("zoom-val").innerHTML =
-    Math.floor(currentVal * 100) + "%";
+    Math.round(currentVal * 100) + "%";
 }
 
 function removeSlide(index) {
