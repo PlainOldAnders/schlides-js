@@ -478,7 +478,7 @@ function getCardAdderButton(slideIndex, cmdIndex, forceX, forceY) {
     );
     elementAddButtonWrapper.appendChild(commandAddButton);
   }
-  elementAddButtonWrapper.className = "elementAddButtonWrapper";
+  elementAddButtonWrapper.className = "elementAddButtonWrapper guideClassNameClarence";
 
   return elementAddButtonWrapper;
 }

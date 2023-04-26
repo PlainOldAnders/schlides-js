@@ -10,7 +10,10 @@ if (window.localStorage.getItem("slideshow") !== null) {
   slideShowObject = new SlideShow({
     jsonString: window.localStorage.getItem("slideshow"),
   });
+} else {
+  createSlide();
 }
+
 const seenGuide = window.localStorage.getItem("seenGuide") === "true";
 
 updateSlideshowSite(false, true);
@@ -223,6 +226,9 @@ function selected(url) {
       slides[i].className = "slideListItems selectedListItem";
     } else {
       slides[i].className = "slideListItems";
+      if(slides[i].id === "createSlideButton") {
+        slides[i].className += " guideClassNameClarence";
+      }
     }
   }
 }
