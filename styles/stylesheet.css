@@ -4,6 +4,32 @@ body {
   background-color: #e0e0e0;
 }
 
+.guideBubble {
+  background-color: #ffb703;
+  color: #023047;
+  position: absolute;
+  padding: 12px;
+  border-radius: 3px 12px 12px 12px;
+  font-family: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  cursor: pointer;
+  user-select: none;
+  
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  top: 100px;
+  left: 100px;
+}
+
+.guideBubble > div {
+  padding-top: 3px;
+  padding-right: 12px;
+}
+
+.guideBubble > div > i {
+  float: right;
+}
+
 hr {
   color: #fff;
   background-color: #fff;

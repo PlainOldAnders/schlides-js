@@ -14,7 +14,7 @@ if (window.localStorage.getItem("slideshow") !== null) {
   createSlide();
 }
 
-const seenGuide = window.localStorage.getItem("seenGuide") === "true";
+let seenGuide = window.localStorage.getItem("seenGuide") === "true";
 
 updateSlideshowSite(false, true);
 
