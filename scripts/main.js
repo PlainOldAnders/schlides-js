@@ -6,15 +6,20 @@ var slideShowObject = new SlideShow({
   slideShowSpace: 2,
 });
 
+let seenGuide = window.localStorage.getItem("seenGuide") === "true";
+
 if (window.localStorage.getItem("slideshow") !== null) {
   slideShowObject = new SlideShow({
     jsonString: window.localStorage.getItem("slideshow"),
   });
+  if(!seenGuide) {
+    window.localStorage.setItem("seenGuide", true);
+    seenGuide = true;
+  }
 } else {
   createSlide();
 }
 
-let seenGuide = window.localStorage.getItem("seenGuide") === "true";
 
 updateSlideshowSite(false, true);
 
