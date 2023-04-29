@@ -125,7 +125,7 @@ function createSlide() {
 
 function save() {
   const element = document.getElementById("saveButton");
-  element.innerHTML = "&#10227;";
+  element.innerHTML = '<i class="fa fa-refresh fa-spin fa-fw"></i>';
   window.localStorage.setItem(
     "slideshow",
     JSON.stringify(slideShowObject.slideShow)

@@ -96,9 +96,9 @@ function commandNameStandardParams(cmdName) {
 }
 function alignmentLookUp(input) {
   const alignmentMap = new Map([
-    ["l", "&#9887;"],
-    ["c", "&#9776;"],
-    ["r", "&#9886;"],
+    ["l", '<i class="fa fa-align-left" aria-hidden="true"></i>'],
+    ["c", '<i class="fa fa-align-center" aria-hidden="true"></i>'],
+    ["r", '<i class="fa fa-align-right" aria-hidden="true"></i>'],
   ]);
   return alignmentMap.get(input);
 }
@@ -459,7 +459,13 @@ function getBorderEditor(slideIndex) {
 
 function getCardAdderButton(slideIndex, cmdIndex, forceX, forceY) {
   const elementAddButtonWrapper = document.createElement("div");
-  const symbols = ["T", "&#9744;", "&#8212;", "&#9776;", "&#9856;"];
+  const symbols = [
+    '<i class="fa fa-font" aria-hidden="true"></i>', 
+    '<i class="fa fa-square-o" aria-hidden="true"></i>', 
+    "&#8212;", 
+    '<i class="fa fa-list" aria-hidden="true"></i>', 
+    '<i class="fa fa-picture-o" aria-hidden="true"></i>'
+  ];
   const commands = [
     "drawText",
     "drawBox",
