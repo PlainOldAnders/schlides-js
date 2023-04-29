@@ -17,18 +17,22 @@ if (!seenGuide) {
   }, 200);
 }
 
-function drawGuideBubble(progress) {
+function drawGuideBubble(progress, inputBoxShadow) {
   removeLastBubble();
+  const currentGuideElements = document.getElementsByClassName("guideClassNameClarence");
+  if(progress > 0) currentGuideElements[progress-1].style.boxShadow = inputBoxShadow;
   if(progress >= maxProgress) {
     seenGuide = true;
     window.localStorage.setItem("seenGuide", true);
     return;
   }
-  const currentGuideElement = document.getElementsByClassName("guideClassNameClarence")[progress];
-  const rects = currentGuideElement.getBoundingClientRect();
+  const rects = currentGuideElements[progress].getBoundingClientRect();
+  
+  let lastBoxShadow = currentGuideElements[progress].style.boxShadow;
+  currentGuideElements[progress].style.boxShadow = "rgba(255, 183, 3, 0.85) 0px 0px 15px";
 
   const bubbleElement = document.createElement("div");
-  bubbleElement.setAttribute("onclick", `drawGuideBubble(${progress+1});`);
+  bubbleElement.setAttribute("onclick", `drawGuideBubble(${progress+1}, "${lastBoxShadow}");`);
   bubbleElement.className = "guideBubble";
   bubbleElement.style.top = rects.top + rects.height + guideHints[progress][2] + "px";
   bubbleElement.style.left = rects.left  + rects.width + guideHints[progress][3] +"px";
