@@ -6,15 +6,15 @@ const guideHints = [
   ["Edit existing slide here", "guideEditor", -12, -6],
   ["Download current slideshow here", "downloadButton", -6, -6],
   ["Save your progress here", "saveButton", -6, -6],
-  ["Edit current elements here", "slideEditor", -18, -18],
   ["Add new elements here", "elementAddButtonWrapper", -18, -42]
 ];
 
 let lastBubble = undefined;
 
 if (!seenGuide) {
-  console.log("Todo: Make a welcome guide");
-  drawGuideBubble(0);
+  setTimeout(()=>{
+    drawGuideBubble(0);
+  }, 200);
 }
 
 function drawGuideBubble(progress) {
@@ -26,7 +26,6 @@ function drawGuideBubble(progress) {
   }
   const currentGuideElement = document.getElementsByClassName("guideClassNameClarence")[progress];
   const rects = currentGuideElement.getBoundingClientRect();
-  console.log(rects);
 
   const bubbleElement = document.createElement("div");
   bubbleElement.setAttribute("onclick", `drawGuideBubble(${progress+1});`);
