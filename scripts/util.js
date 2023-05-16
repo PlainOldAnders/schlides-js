@@ -357,14 +357,14 @@ function updateInit(event, slideIndex, param, borderIndex = -1) {
 }
 
 function updateInputAlignment(event, slideIndex, cmdIndex, param) {
-  if (event.srcElement.parentElement.className.includes("selectedAlignment"))
+  if (event.srcElement.parentElement.parentElement.className.includes("selectedAlignment"))
     return;
 
-  const parent = event.srcElement.parentElement.parentElement;
+  const parent = event.srcElement.parentElement.parentElement.parentElement;
   var index;
   for (var i = 1; i < parent.children.length; i++) {
     parent.children[i].className = "alignmentButtons";
-    if (parent.children[i] == event.srcElement.parentElement) {
+    if (parent.children[i] == event.srcElement.parentElement.parentElement) {
       index = i;
     }
   }
